@@ -56,7 +56,11 @@ and export it to HTML
 
 The results of these tests are:
 
+**Nodejs14.x:**
+
 ![picture](https://github.com/ymwjbxxq/dotnetcore3.1-vs-nodejs-aws-apigw-lambda-dynamodb_and_sqs/blob/main/node.artillery.png)
+
+**Dotnetcore3.1:**
 
 ![picture](https://github.com/ymwjbxxq/dotnetcore3.1-vs-nodejs-aws-apigw-lambda-dynamodb_and_sqs/blob/main/dotnet.artillery.png)
 
