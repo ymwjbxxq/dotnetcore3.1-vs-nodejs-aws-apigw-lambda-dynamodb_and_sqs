@@ -1,0 +1,45 @@
+config:
+  target: 'https://xxxx.execute-api.eu-central-1.amazonaws.com'
+# Constant arrival rate
+#  The following example generates 50 virtual users every second for 5 minutes
+  phases:
+    - duration: 300
+      arrivalRate: 50
+# The following example generates 10 virtual users every second for 5 minutes, with no more than 500 concurrent virtual users at any given time:
+    - duration: 300
+      arrivalRate: 10
+      maxVusers: 500
+#Ramp up rate
+#The following example ramps up the arrival rate of virtual users from 100 to 1000 over 5 minutes:
+    - duration: 300
+      arrivalRate: 100
+      rampTo: 1000
+# Fixed number of arrivals per second
+# The following example creates 1000 virtual users in 60 seconds (one virtual user approximately every 3 seconds):
+    - duration: 60
+      arrivalCount: 1000
+  payload:
+    # path is relative to the location of the test script
+    path: "random.csv"
+    fields:
+      - "Id"
+      - "Fullname"
+    # Specify sequential if you want to run csv in order from the beginning 
+    order: sequence
+    # Ignore the first line of the csv
+    skipHeader: true
+
+scenarios:
+  - flow:
+      - log: "call node"
+      - post:
+          url: "/your-node-route"
+          json:
+            Id: "{{ Id }}"
+            Fullname: "{{ Fullname }}"
+      - log: "call dotnet"
+      - post:
+          url: "/your-dotnet-route"
+          json:
+            Id: "{{ Id }}"
+            Fullname: "{{ Fullname }}"
