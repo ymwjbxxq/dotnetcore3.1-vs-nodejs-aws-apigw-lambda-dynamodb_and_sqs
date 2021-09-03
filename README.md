@@ -70,7 +70,7 @@ The results of these tests are:
 
 ### Conclusion ###
 
-Some say that the language in a serverless scenario is essential and to prefer interpreted languages over dotnetcore3.1 and if the cold start time is so important to you.
+Some say that the language in a serverless scenario is essential and to prefer interpreted languages over dotnetcore3.1 if the cold start time is so important to you.
 However, after seeing the results, I would say that is not important anymore because if latency is crucial, there is the option of [Provisioned concurrency](https://docs.aws.amazon.com/lambda/latest/dg/configuration-concurrency.html), but once you use it better to stay with a compiled language like dotnetcore3.1.
 Given a choice, dotnetcore3.1 is faster and cheaper to run in a serverless scenario in the long term.
 
